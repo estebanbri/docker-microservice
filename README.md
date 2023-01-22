@@ -53,11 +53,12 @@ Solución 2: En guru lo que hacemos es
 Como ves no usamos .dockerignore porque definimos un BuildContext /path/to/component-version que es una carpeta que tiene el Dockerfile y el .jar y ningun archivo o carpeta de mas que sobre.
 
 ## Ejecucion de container
-> docker run --name rest-app -d -p 8081:8080 -e SERVER_PORT=8080 -e EUREKA_URI=http://eureka-server:8761/eureka --network mi_red estebanbri/docker-app:1.0
+> docker run --name rest-app -d --rm -p 8081:8080 -e SERVER_PORT=8080 -e EUREKA_URI=http://eureka-server:8761/eureka --network mi_red estebanbri/docker-app:1.0
 
 Nota 0: NUNCA DE LOS JAMASES LE DES NOMBRES CON GUION BAJO A LOS NOMBRES DE LOS CONTAINERS porque si usas una user-defined network (--network mi_red) cuando te comuniques de un contenedor a otro el tomcat del contenedor destino te va a chillar y te va a tirar un 400 error que dice: java.lang.IllegalArgumentException: The character [_] is never valid in a domain name.
 Nota 1: para ejecutar multiples containers de una misma imagen es obligatorio que sean distintos tanto los nombres de los container y los ports.
 Nota 2: docker run no te permite crear y ejecutar un contenedor llamado por ej rest-app si ya existe un contenedor ejecutandose inclusive stopped. (solucion: si esta stopped hacele un docker rm container_name para eliminarlo) 
+Nota 3: El flag -rm es para que se borre el container automaticamente una vez que se detiene el contenedor.
 
 ## Spring boot tiene un plugin de maven para que te genere la imagen automaticamente dentro del lifecycle por defecto sin necesidad de usar comandos docker
 ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=springio/gs-spring-boot-docker
