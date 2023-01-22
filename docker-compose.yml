@@ -18,7 +18,7 @@ services:
     depends_on:
       - eureka-server
     ports: 
-      - '8082:8080'
+      - '8080' # Te permite que puedas hacer SCALLING de rest-app-b, selecciona un random port host y lo mapea al puerto 8080 del container
     environment:
       - EUREKA_URI=http://eureka-server:8761/eureka
       - SERVER_PORT=8080

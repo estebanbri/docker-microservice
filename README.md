@@ -160,5 +160,10 @@ Fijate en el log que generó docker-compose up ahi te dice el nombre de la red q
 - Para buildear y generar las imagenes y levantar los containers en unico comando:
 > docker-compose up --build
   
- - Para escalar instancias de un container:
- > docker-compose up --scale rest-app-b=2
+- Para escalar instancias de un container:
+Nota: como nuestro load balancing lo hacemos via las llamadas internas (intra-container) gracias a rest-template, el mismo
+rest-template es el encargado de hacer el balanceo de cargas entre las llamadas de la unica instancia rest-app 
+y las dos instancias de rest-app-b (en caso de que necesites escalar el punto de entrada de tu app es decir
+escalar el container rest-app vas a necesitar un nginx que sea el encargado de hacer el load balancing cuando
+se reciba una nueva petición de un cliente https://www.youtube.com/watch?v=9aOpRhm33oM)
+> docker-compose up --scale rest-app-b=2
