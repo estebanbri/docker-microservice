@@ -140,10 +140,11 @@ Entonces ese wget lo reemplazarias asi si usarias una network user defined:
 > 'index.html' saved  
 
 ## Docker compose
-- Para que buildee las imagenes
+- Para buildear y generar las imagenes:
 > docker-compose build
-- Para que levante los containers
-> docker-compose build
+  
+- Para que levantar los containers:
+> docker-compose up
 
-Para hacer las dos cosas en unico comando utiliza --build asi:
+- Para buildear y generar las imagenes y levantar los containers en unico comando:
 > docker-compose up --build
