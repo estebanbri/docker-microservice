@@ -138,3 +138,12 @@ Entonces ese wget lo reemplazarias asi si usarias una network user defined:
 > Connecting to rest-app2:8081 (172.17.0.3:8081)  
 > saving to 'index.html'  
 > 'index.html' saved  
+
+## Docker compose
+- Para que buildee las imagenes
+> docker-compose build
+- Para que levante los containers
+> docker-compose build
+
+Para hacer las dos cosas en unico comando utiliza --build asi:
+> docker-compose up --build
