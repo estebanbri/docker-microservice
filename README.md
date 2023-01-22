@@ -27,6 +27,10 @@ que los containers dentro de docker (comunicacion intra-container) (ojo no por f
 a un container tenes que hacerlo via la IP del HOST y el port definido en el mapeo de puertos con -p) se puedan comunicar
 por nombre de container en vez de por IP.
 
+Recorda que los containers que estan en redes distintas no se pueden comunicar. Es decir si tenes dos containers A  y B
+dentro de una user-defined network llamada mi_red no se van a poder comunicar de ninguna manera con un container C 
+que se esta ejecutando sobre la network default Bridge de docker.
+
 ## Eureka
 Primero configura el eureka server y ejecuta un container
 > docker run --name eureka-server -d -p 8761:8761 --network mi_red estebanbri/eureka-server:1.0
