@@ -125,16 +125,16 @@ Dentro de dicho contenedor hacemos un wget (alternativa a curl a diferencia que 
 Nota: supone que ambos contenedores estan sobre la network bridge por defecto, entonces docker le asigna automaticamente  las IP a los containers asi:
 rest-app le asignó ip 172.17.0.2 y rest-app2 le asignó ip 172.17.0.3
 
-> 1463e8f7853b:/app# wget 172.17.0.3:8081
-> Connecting to 172.17.0.3:8081 (172.17.0.3:8081)
-> saving to 'index.html'
-> 'index.html' saved
+> 1463e8f7853b:/app# wget 172.17.0.3:8081  
+> Connecting to 172.17.0.3:8081 (172.17.0.3:8081)  
+> saving to 'index.html'  
+> 'index.html' saved  
 
 Como ves la comunicacion via la network bridge por defecto hay que hacerla via IP's de los containers, por eso nace
 las user defined networks, para estas ultimas networks docker habilita un servidor DNS para resolucion de nombre-container-IP
 Entonces ese wget lo reemplazarias asi si usarias una network user defined:
 
-> wget rest-app2:8081
-> Connecting to rest-app2:8081 (172.17.0.3:8081)
-> saving to 'index.html'
-> 'index.html' saved
+> wget rest-app2:8081  
+> Connecting to rest-app2:8081 (172.17.0.3:8081)  
+> saving to 'index.html'  
+> 'index.html' saved  
