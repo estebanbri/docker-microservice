@@ -134,8 +134,8 @@ Como ves la comunicacion via la network bridge por defecto hay que hacerla via I
 las user defined networks, para estas ultimas networks docker habilita un servidor DNS para resolucion de nombre-container-IP
 Entonces ese wget lo reemplazarias asi si usarias una network user defined:
 
-> 1463e8f7853b:/app# wget rest-app2:8081  
-> Connecting to rest-app2:8081 (172.17.0.3:8081)  
+> 1463e8f7853b:/app# wget rest-app:8081  
+> Connecting to rest-app:8081 (172.17.0.3:8081)  
 > saving to 'index.html'  
 > 'index.html' saved  
 
