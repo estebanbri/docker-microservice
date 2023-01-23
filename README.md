@@ -59,6 +59,8 @@ Como ves no usamos .dockerignore porque definimos un BuildContext /path/to/compo
 ## Ejecucion de container
 > docker run --name rest-app -d --rm -p 8081:8080 -e SERVER_PORT=8080 -e EUREKA_URI=http://eureka-server:8761/eureka --network mi_red estebanbri/docker-app:1.0
 
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/diagrama-sin-docker-compose.png)
+
 Nota 0: NUNCA DE LOS JAMASES LE DES NOMBRES CON GUION BAJO A LOS NOMBRES DE LOS CONTAINERS porque si usas una user-defined network (--network mi_red) cuando te comuniques de un contenedor a otro el tomcat del contenedor destino te va a chillar y te va a tirar un 400 error que dice: java.lang.IllegalArgumentException: The character [_] is never valid in a domain name.
 Nota 1: para ejecutar multiples containers de una misma imagen es obligatorio que sean distintos tanto los nombres de los container y los ports.
 Nota 2: docker run no te permite crear y ejecutar un contenedor llamado por ej rest-app si ya existe un contenedor ejecutandose inclusive stopped. (solucion: si esta stopped hacele un docker rm container_name para eliminarlo) 
@@ -77,6 +79,8 @@ EXPOSE me permite especificar puerto(s) de mi container que quiero abrir para qu
 Resumen con ejemplo:
 EXPOSE 8080 # abre el puerto 8080 del container pero solo puede ser accedido dentro de la misma docker network (no desde localhost)
 post 8080:8080 # abre el puerto 8080 del container y lo mapea al puerto 8080 del HOST para poder ser accedido desde fuera de la network, es decir desde HOST.
+
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/expose-versus-ports.png)
 
 Por defecto, EXPOSE asume TCP, es decir esto es equivalente
 EXPOSE 80/tcp
@@ -171,3 +175,5 @@ y las dos instancias de rest-app-b (en caso de que necesites escalar el punto de
 escalar el container rest-app vas a necesitar un nginx que sea el encargado de hacer el load balancing cuando
 se reciba una nueva petición de un cliente https://www.youtube.com/watch?v=9aOpRhm33oM)
 > docker-compose up --scale rest-app-b=2
+
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/diagrama-con-docker_compose-con-nginx.png)
