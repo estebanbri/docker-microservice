@@ -9,7 +9,7 @@ cuando va balanceando la carga.
 
 ## Porque es importante setear una network para la comunicacion de los container/microservicios
 Fijate que nosotros en vez de pasarle la IP del eureka server en el docker run de los eureka client le pasamos el nombre del container eureka-server
-> -e EUREKA_URI=http://eureka-server:8761/eureka"
+> -e EUREKA_URI=http://eureka-server:8761/eureka
 
 ¿Como lo hacemos?
 Gracias a definir una user-defined network podés usar el nombre del container en vez de la IP, para que la comunicacion intra-container
