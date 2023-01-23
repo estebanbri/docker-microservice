@@ -144,11 +144,11 @@ Entonces ese wget lo reemplazarias asi si usarias una network user defined:
 ### Networking con docker compose
 Docker compose automaticamente te crea una network propia para tus containers includidos dentro del archivo docker-compose.yml (seria como una red user-defined automaticamente generada por docker compose (el nombre de la red por lo visto es el nombre de la carpeta donde esta ubicado el docker compose seguido de un _default.
   
-Fijate en el log que generó docker-compose up ahi te dice el nombre de la red que creo automaticamente:
-> Network docker-microservice_default            Created                                                    0.1s
-> Container docker-microservice-rest-app-1       Created                                                    0.2s
-> Container docker-microservice-eureka-server-1  Created                                                    0.2s
-> Container docker-microservice-rest-app-b-1     Created                                                    0.2s
+Fijate en el log que generó docker-compose up ahi te dice el nombre de la red que creo automaticamente:  
+> Network docker-microservice_default            Created                                                    0.1s  
+> Container docker-microservice-rest-app-1       Created                                                    0.2s  
+> Container docker-microservice-eureka-server-1  Created                                                    0.2s  
+> Container docker-microservice-rest-app-b-1     Created                                                    0.2s  
  
 ### Comandos utiles
 - Para buildear y generar las imagenes:
