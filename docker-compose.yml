@@ -3,13 +3,13 @@ services:
 
   eureka-server:
     build: '../eureka-server'
-    ports: 
-      - '8761:8761'
+    expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host
+      - '8761'
 
   rest-app:
     build: .
-    ports: 
-      - '8081:8080'
+    expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host)
+      - '8080'
     environment:
       - EUREKA_URI=http://eureka-server:8761/eureka
       - SERVER_PORT=8080
@@ -18,8 +18,8 @@ services:
 
   rest-app-b:
     build: '../docker-microservice-b'
-    ports: 
-      - '8080' # Te permite que puedas hacer SCALLING de rest-app-b, selecciona un random port host y lo mapea al puerto 8080 del container
+    expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host)
+      - '8080'  
     environment:
       - EUREKA_URI=http://eureka-server:8761/eureka
       - SERVER_PORT=8080
@@ -31,7 +31,7 @@ services:
     volumes:
       - './nginx/default.conf:/etc/nginx/conf.d/default.conf'
     ports: 
-      - '80:80'
+      - '80:80' # port ademas de abrir el puerto del container dentro de la misma network (idem al funcionamiento de expose), ademas te permite acceder desde afuera de la network especifamente desde el host (mediante localhost)
     depends_on:
       - rest-app
       - rest-app-b

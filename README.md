@@ -69,11 +69,15 @@ Nota 3: El flag -rm es para que se borre el container automaticamente una vez qu
 
 ## Dockerfile instructions
 
-### EXPOSE
-La instruccion EXPOSE realmente no publica el puerto. Funciona como un tipo de documentación entre la persona
-que contruyó la imagen y la persona que ejecuta un contenedor de dicha imagen sobre que puertos
-están destinados a ser publicados. Para realmente publicar el puerto cuando se ejecute un container usa el flag -p
-sobre el comando docker run para publicar uno o mas puertos, o el flat -P para publicar todos los puertos exposed.
+### EXPOSE (expose) versus -p (ports)
+EXPOSE me permite especificar puerto(s) de mi container que quiero abrir para que otros containers DENTRO DE LA MISMA NETWORK puedan comunicarse con mi container.
+
+-p (o ports en docker compose) tambien nos permite hacer lo mismo que EXPOSE es decir que containers dentro DENTRO DE LA MISMA NETWORK puedan comunicarse con mi container PERO ADEMAS NOS PERMITE ACCEDER MI CONTAINER DESDE EL HOST (localhost), est
+
+Resumen con ejemplo:
+EXPOSE 8080 # abre el puerto 8080 del container pero solo puede ser accedido dentro de la misma docker network (no desde localhost)
+post 8080:8080 # abre el puerto 8080 del container y lo mapea al puerto 8080 del HOST para poder ser accedido desde fuera de la network, es decir desde HOST.
+
 Por defecto, EXPOSE asume TCP, es decir esto es equivalente
 EXPOSE 80/tcp
 EXPOSE 80
