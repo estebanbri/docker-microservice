@@ -59,7 +59,7 @@ Como ves no usamos .dockerignore porque definimos un BuildContext /path/to/compo
 ## Ejecucion de container
 > docker run --name rest-app -d --rm -p 8081:8080 -e SERVER_PORT=8080 -e EUREKA_URI=http://eureka-server:8761/eureka --network mi_red estebanbri/docker-app:1.0
 
-![alt text](https://github.com/estebanbri/docker-microservice/blob/master/diagrama-sin-docker-compose.png)
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/diagrama-sin-docker_compose.png)
 
 Nota 0: NUNCA DE LOS JAMASES LE DES NOMBRES CON GUION BAJO A LOS NOMBRES DE LOS CONTAINERS porque si usas una user-defined network (--network mi_red) cuando te comuniques de un contenedor a otro el tomcat del contenedor destino te va a chillar y te va a tirar un 400 error que dice: java.lang.IllegalArgumentException: The character [_] is never valid in a domain name.
 Nota 1: para ejecutar multiples containers de una misma imagen es obligatorio que sean distintos tanto los nombres de los container y los ports.
