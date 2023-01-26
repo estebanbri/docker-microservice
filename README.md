@@ -147,6 +147,22 @@ Entonces ese wget lo reemplazarias asi si usarias una network user defined:
 > saving to 'index.html'  
 > 'index.html' saved  
 
+## Como enviar environment variables a mis containers via .env file 
+Te da la ventaja de no tener que definir a mano una y otra vez las environemnt variables cada vez que le haces un docker run directamente definis las environment variables que necesita el contenedor para levantar en un archivo centralizado como .env y al momento de hacer docker run usando la opcion --env-file le pasas la ruta del archivo y automaticamente se van a injectar los pares de clave valor que definiste en dicho archivo como variables de entorno dentro del container.
+
+Definiendo el .env asi:
+```
+SERVER_PORT=8080 
+EUREKA_URI=http://eureka-server:8761/eureka
+```
+
+El comando docker run pasaria de esto:
+> docker run --name rest-app -d --rm -p 8081:8080 -e SERVER_PORT=8080 -e EUREKA_URI=http://eureka-server:8761/eureka --network mi_red estebanbri/docker-app:1.0
+
+a esto:
+> $ docker run --name rest-app -d --rm -p 8081:8080 --env-file .env --network mi_red estebanbri/docker-app:1.0
+
+
 ## Docker compose
   
 ### Networking con docker compose
