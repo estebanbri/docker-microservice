@@ -104,7 +104,7 @@ Both CMD and ENTRYPOINT instructions define what command gets executed when runn
 - CMD should be used as a way of defining default arguments for an ENTRYPOINT command or for executing an ad-hoc command in a container.
 - CMD will be overridden when running the container with alternative arguments.
 
-## Que son las imagenes con REPOSITORY=<none> y TAG=<none>
+## Que son las imagenes con REPOSITORY=\<none>\ y TAG=\<none>\
 Aparecen cuando vos creas una imagen que ya existia es decir ya existia su nombre y tag previamente y cuyo contenido 
 de la imagen nueva cambió respecto a la anterior, entonces lo que hace docker no la pisa con la nueva version sino
 que te la deja "dangling" con nombre de imagen y tag <none>.
