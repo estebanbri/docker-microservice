@@ -214,11 +214,11 @@ Esto te da la ventaja de poder tener varios .env segun el ambiente
   
 > docker compose --env-file ./config/.env.dev up
 
-![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option.png)
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option1.png)
   
 Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica dentro del archivo docker-compose.yml:
 
-![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option_for_volumen.png)
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option_for_volumen1.png)
 
 #### Alternativa 2: Environment variables dentro de archivos .env definidos ***ESTATICAMENTE*** dentro del archivo docker-compose.yml:
 Usando la directiva env_file dentro del service requerido del archivo docker-compose.yml.
