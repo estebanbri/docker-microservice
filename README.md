@@ -180,8 +180,8 @@ se reciba una nueva petición de un cliente https://www.youtube.com/watch?v=9aOp
 
 
 ### Environment variables as a File (.env)
-#### Alternativa 1: Environment variables dentro de archivos .env definidos ***DINAMICAMENTE*** al momento de hacer el startup de docker compose.
-  Environment variables COMPARTIDAS por todos los servicios definidos en docker-compose.yml:
+#### Alternativa 1: Environment variables dentro de archivos .env definidos ***DINAMICAMENTE*** al momento de hacer el startup de docker compose. (Las environment variables son reutilizables(compartibles) por todos los services)
+  
 Esto se hace pasando el PATH del archivo .env del ambiente que necesitas como argumento de docker compose con la opcion ***--env-file***:
 > docker compose --env-file ./config/.env up
 
@@ -189,7 +189,7 @@ Esto se hace pasando el PATH del archivo .env del ambiente que necesitas como ar
 Esto te da la ventaja de poder tener varios .env segun el ambiente 
   - .env.dev
   - .env.qa
-  - env.prod
+  - .env.prod
   
 > docker compose --env-file ./config/.env.dev up
 
