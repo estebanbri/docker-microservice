@@ -163,6 +163,8 @@ a esto:
 > $ docker run --name rest-app -d --rm -p 8081:8080 --env-file .env --network mi_red estebanbri/docker-app:1.0
 
 Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica en el en el docker run asi:
+
+Definiendo el .env asi:
 ```
 LOCAL_VOLUME_PATH=C:/mi_volumen 
 ```
