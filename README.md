@@ -196,3 +196,5 @@ service: rest-app-b-1
   env_file ./config/.env.rest-app-b-1
 ...
 ```
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive.png)
+
