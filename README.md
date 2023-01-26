@@ -205,6 +205,5 @@ Usando la directiva env_file dentro del service requerido del archivo docker-com
   - .env.rest-app-1
   - .env.rest-app-b-1
   - .env.eureka
-
 ![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_per_service_directive.png)
 
