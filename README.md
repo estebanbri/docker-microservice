@@ -192,6 +192,8 @@ Esto te da la ventaja de poder tener varios .env segun el ambiente
   
 > docker compose --env-file ./config/.env.dev up
 
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option.png)
+
 #### Alternativa 2: Environment variables ESPECIFICAS por servicios definidos en docker-compose.yml
  Esto se hace usando usando la directiva env_file dentro del service requerido del archivo docker-compose.yml
  Esto te da la ventaja de poder tener varios .env con propiedades unicas que tengan cada service: 
@@ -199,5 +201,5 @@ Esto te da la ventaja de poder tener varios .env segun el ambiente
   - .env.rest-app-b-1
   - .env.eureka
 
-![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive.png)
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive1.png)
 
