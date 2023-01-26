@@ -1,13 +1,6 @@
 version: '3.9'
 services:
-  rest-app-b:
-    build: .
-    expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host)
-      - '8080'
-    env_file:
-      - ./env.rest-app-b
-    depends_on:
-      - eureka-server
+
   eureka-server:
     build: '../eureka-server'
     expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host
