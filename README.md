@@ -180,24 +180,30 @@ se reciba una nueva petición de un cliente https://www.youtube.com/watch?v=9aOp
 
 
 ### Environment variables as a File (.env)
-#### Alternativa 1: Environment variables COMPARTIDAS por todos los servicios definidos en docker-compose.yml:
+#### Alternativa 1: Environment variables dentro de archivos .env definidos ***DINAMICAMENTE*** al momento de hacer el startup de docker compose. (Las environment variables son reutilizables(compartibles) por todos los services)
+  
 Esto se hace pasando el PATH del archivo .env del ambiente que necesitas como argumento de docker compose con la opcion ***--env-file***:
 > docker compose --env-file ./config/.env up
 
-- UTILIDAD: definir .env de cada ambiente (dev,qa,prod)
+- UTILIDAD: definir varios .env de cada ambiente (dev,qa,prod)
 Esto te da la ventaja de poder tener varios .env segun el ambiente 
   - .env.dev
   - .env.qa
-  - env.prod
+  - .env.prod
   
 > docker compose --env-file ./config/.env.dev up
 
-#### Alternativa 2: Environment variables ESPECIFICAS por servicios definidos en docker-compose.yml
- Esto se hace usando usando la directiva env_file dentro del service requerido del archivo docker-compose.yml
- Esto te da la ventaja de poder tener varios .env con propiedades unicas que tengan cada service: 
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option.png)
+
+#### Alternativa 2: Environment variables dentro de archivos .env definidos ***ESTATICAMENTE*** dentro del archivo docker-compose.yml:
+Usando la directiva env_file dentro del service requerido del archivo docker-compose.yml.
+- Utilidad 1: definir un unico archivo .env y reutilizarlo en todos los services
+  - .env  
+
+- Utilidad 2:  definir varios .env con propiedades unicas que tengan cada service: 
   - .env.rest-app-1
   - .env.rest-app-b-1
   - .env.eureka
 
-![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive.png)
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive1.png)
 
