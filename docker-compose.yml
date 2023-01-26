@@ -1,15 +1,5 @@
 version: '3.9'
 services:
-  rest-app-b:
-    build: '../docker-microservice-b'
-    expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host)
-      - '8080'  
-    environment:
-      - EUREKA_URI=${EUREKA}
-      - SERVER_PORT=${PORT}
-    depends_on:
-      - eureka-server
-
 
   eureka-server:
     build: '../eureka-server'
