@@ -199,11 +199,12 @@ Esto te da la ventaja de poder tener varios .env segun el ambiente
 Usando la directiva env_file dentro del service requerido del archivo docker-compose.yml.
 - Utilidad 1: definir un unico archivo .env y reutilizarlo en todos los services
   - .env  
-
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_1_env_file_shared_directive1.png)
+  
 - Utilidad 2:  definir varios .env con propiedades unicas que tengan cada service: 
   - .env.rest-app-1
   - .env.rest-app-b-1
   - .env.eureka
 
-![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive1.png)
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_per_service_directive.png)
 
