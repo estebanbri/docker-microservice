@@ -162,7 +162,13 @@ El comando docker run pasaria de esto:
 a esto:
 > $ docker run --name rest-app -d --rm -p 8081:8080 --env-file .env --network mi_red estebanbri/docker-app:1.0
 
-
+Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica en el en el docker run asi:
+```
+...
+LOCAL_VOLUME_PATH=C:/mi_volumen 
+```
+> $ docker run --name rest-app -d --rm -p 8081:8080 -v ${LOCAL_VOLUME_PATH}:/app --env-file .env --network mi_red estebanbri/docker-app:1.0  
+  
 ## Docker compose
   
 ### Networking con docker compose
@@ -222,4 +228,11 @@ Usando la directiva env_file dentro del service requerido del archivo docker-com
   - .env.rest-app-b-1
   - .env.eureka
 ![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_per_service_directive.png)
+  
+Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica dentro del archivo docker-compose.yml:
+.env  
+```
+LOCAL_VOLUME_PATH=C:/mi_volumen 
+```
+ 
 
