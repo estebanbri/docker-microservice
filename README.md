@@ -180,21 +180,24 @@ se reciba una nueva petición de un cliente https://www.youtube.com/watch?v=9aOp
 
 
 ### Environment variables as a File (.env)
-#### Alternativa 1: Usando la opcion --env-file del comando docker compose
-Esto se hace pasando archivo el PATH del archivo .env del ambiente que necesitas como argumento de docker compose con la opcion ***--env-file***:
+#### Alternativa 1: Environment variables COMPARTIDAS por todos los servicios definidos en docker-compose.yml:
+Esto se hace pasando el PATH del archivo .env del ambiente que necesitas como argumento de docker compose con la opcion ***--env-file***:
 > docker compose --env-file ./config/.env up
 
-- USOS: definir .env de cada ambiente (dev,qa,prod)
-Esto te da la ventaja de poder tener varios .env segun el ambiente .env.dev, .env.qa, .env.prod, ejemplo:
+- UTILIDAD: definir .env de cada ambiente (dev,qa,prod)
+Esto te da la ventaja de poder tener varios .env segun el ambiente 
+  - .env.dev
+  - .env.qa
+  - env.prod
+  
 > docker compose --env-file ./config/.env.dev up
 
-#### Alternativa 2: Usando la directiva env_file dentro del service del archivo docker-compose.yml
- Esto te da la ventaja de poder tener varios .env segun el ambiente .env.rest-app-1, .env.rest-app-b-1, .env.eureka, ejemplo docker-compose-yml:
-```
-...
-service: rest-app-b-1
-  env_file ./config/.env.rest-app-b-1
-...
-```
+#### Alternativa 2: Environment variables ESPECIFICAS por servicios definidos en docker-compose.yml
+ Esto se hace usando usando la directiva env_file dentro del service requerido del archivo docker-compose.yml
+ Esto te da la ventaja de poder tener varios .env con propiedades unicas que tengan cada service: 
+  - .env.rest-app-1
+  - .env.rest-app-b-1
+  - .env.eureka
+
 ![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_directive.png)
 
