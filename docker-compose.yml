@@ -5,8 +5,8 @@ services:
     expose:     # expose te permite indicarle que puerto abrir del container pero solo va a ser accesible dentro del la misma network que esten los container (es decir no es accesible por el host)
       - '8080'  
     environment:
-      - EUREKA_URI=http://eureka-server:8761/eureka
-      - SERVER_PORT=8080
+      - EUREKA_URI=${EUREKA}
+      - SERVER_PORT=${PORT}
     depends_on:
       - eureka-server
 
