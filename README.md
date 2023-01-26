@@ -164,7 +164,6 @@ a esto:
 
 Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica en el en el docker run asi:
 ```
-...
 LOCAL_VOLUME_PATH=C:/mi_volumen 
 ```
 > $ docker run --name rest-app -d --rm -p 8081:8080 -v ${LOCAL_VOLUME_PATH}:/app --env-file .env --network mi_red estebanbri/docker-app:1.0  
@@ -216,6 +215,10 @@ Esto te da la ventaja de poder tener varios .env segun el ambiente
 > docker compose --env-file ./config/.env.dev up
 
 ![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option.png)
+  
+Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica dentro del archivo docker-compose.yml:
+
+![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_--env-file_option_for_volumen.png)
 
 #### Alternativa 2: Environment variables dentro de archivos .env definidos ***ESTATICAMENTE*** dentro del archivo docker-compose.yml:
 Usando la directiva env_file dentro del service requerido del archivo docker-compose.yml.
@@ -228,11 +231,5 @@ Usando la directiva env_file dentro del service requerido del archivo docker-com
   - .env.rest-app-b-1
   - .env.eureka
 ![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_per_service_directive.png)
-  
-Tambien es util para definir path de volumenes para no tener que especificar las rutas dede manera estatica dentro del archivo docker-compose.yml:
-.env  
-```
-LOCAL_VOLUME_PATH=C:/mi_volumen 
-```
  
 
