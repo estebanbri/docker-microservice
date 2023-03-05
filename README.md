@@ -233,10 +233,4 @@ Usando la directiva env_file dentro del service requerido del archivo docker-com
   - .env.rest-app-b-1
   - .env.eureka
 ![alt text](https://github.com/estebanbri/docker-microservice/blob/master/docker_compose_env_file_per_service_directive.png)
- 
-## DUCK DNS
-Es un servicio de DNS dinamico gratis, que basicamente la funcion que cumple es asociar un "nombre de dominio" (midominio.com) a la IP Publica de tu router. Como los proveedores de internet generalmente te dan IP's Publicas dinamicas, es decir reinicias el router y te asigna otra IP Publica al router, aca en donde entra en juego el concepto de un servicio de DNS Dinamico tiene la capacidad de asociar un nombre de dominio  a una IP Publica dinamica. El servicio de DuckDNS cada vez que cambia la IP Publica de tu router el mismo se encarga de asociar la nueva direccion IP Publica al nombre de dominio existente.
-
-## NGINX PROXY MANAGER
-Es una UI web para gestionar nginx asi evitas el manejo de archivos de configuración.
 
